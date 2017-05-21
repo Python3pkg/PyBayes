@@ -10,7 +10,7 @@ from math import e, erf, exp, log, pi, sqrt
 import numpy as np
 
 import pybayes as pb
-from support import PbTestCase, stochastic
+from .support import PbTestCase, stochastic
 
 
 class TestRVComp(PbTestCase):
@@ -335,14 +335,14 @@ class TestGaussPdf(PbTestCase):
             0.000133830225765,
             1.48671951473e-06,
         ])
-        for i in xrange(0, 11):
+        for i in range(0, 11):
             x[0] = i - 5.
             res = exp(norm.eval_log(x))
             self.assertApproxEqual(res, expected[i])
 
         # same variance, non-zero mean:
         norm = pb.GaussPdf(np.array([17.9]), np.array([[1.]]))
-        for i in xrange(0, 11):
+        for i in range(0, 11):
             x[0] = i - 5. + 17.9
             res = exp(norm.eval_log(x))
             self.assertApproxEqual(res, expected[i])
@@ -362,7 +362,7 @@ class TestGaussPdf(PbTestCase):
             0.060428346749642113,
             0.044766420317807747,
         ])
-        for i in xrange(0, 11):
+        for i in range(0, 11):
             x[0] = (i - 5.)
             res = exp(norm.eval_log(x))
             self.assertApproxEqual(res, expected[i])
@@ -936,7 +936,7 @@ class TestMLinGaussCPdf(PbTestCase):
             0.000133830225765,
             1.48671951473e-06,
         ])
-        for i in xrange(0, 11):
+        for i in range(0, 11):
             # cond is set to [1.], which should produce mean = [0.]
             x[0] = i - 5.
             cond[0] = 1.
